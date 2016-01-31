@@ -10,20 +10,20 @@ body {
 }
 
 a {
-    text-decoration: none;
-    color: #3c7;
+  text-decoration: none;
+  color: #3c7;
 }
 
 p { text-align: justify }
 
 header {
-    padding: 30px;
+  padding: 30px;
 
-    text-align: center;
-    color: #fff;
+  text-align: center;
+  color: #fff;
 
-    background-color: #3c7;
-    background-image: linear-gradient(to top right, #57ec9a, #1ea65b);
+  background-color: #3c7;
+  background-image: linear-gradient(to top right, #57ec9a, #1ea65b);
 }
 
 header a,

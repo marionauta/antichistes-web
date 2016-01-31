@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body onload="aleatorio()">
+    <header>
+        <nav>
+            <div class="to aleatorio visto">Aleatorio</div>
+            <div class="to ultimos">Últimos</div>
+        </nav>
+    </header>
+
+    <div class="main" id="aleatorio">
+        <div class="cont">
+            <div id="ap" class="parece"></div>
+            <div id="an" class="noes"></div>
+        </div>
+        <div class="opt send">Compartir</div>
+        <div class="opt otro">Otro</div>
+        <div class="opt vote">Me gusta</div>
+        <div class="opt see">Ver</div>
+        <footer class="hint">2016 &copy; marionauta</footer>
+    </div>
+
+    <div class="main" id="ultimos">
+        <p class="hint">Toca para ver.<br />Vuelve a tocar para compartir.</p>
+        <div id="list"></div>
+        <div id="ultibot" class="opt more">Cargar más</div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/antichistes.js"></script>
+</body>
+</html>
