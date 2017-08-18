@@ -2,7 +2,7 @@ var id;
 var recuentos = 0;
 var p = 0;
 var version = '1.4.5';
-var urlbase = 'http://get.eldiaque.tk/antichistes/api.php?version=' + version;
+var urlbase = 'https://get.eldiaque.tk/antichistes/api.php?version=' + version;
 
 function ocultarExcepto(sec) {
 	$('.main').hide();
