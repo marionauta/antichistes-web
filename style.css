@@ -50,3 +50,13 @@ footer {
     color: #888;
     text-align: center;
 }
+
+::selection {
+    color: #FFF;
+    background: #3C7;
+}
+
+::-moz-selection {
+    color: #FFF;
+    background: #3C7;
+}
