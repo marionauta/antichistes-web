@@ -27,6 +27,8 @@ body {
 }
 
 #buttons > * {
+    display: none;
+
     width: 60%;
     padding: 16px;
     margin: 8px auto;

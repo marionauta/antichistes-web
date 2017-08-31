@@ -15,12 +15,12 @@ function random() {
             first_part.textContent = current.first_part;
             second_part.textContent = current.second_part;
             first_part.style.display = 'block';
+            button_show.style.display = 'block';
         }
     };
     req.send(null);
 }
 function aleatorio() {
-    button_show.style.display = 'block';
     [first_part, second_part, button_like, button_next].forEach(function (b) {
         b.style.display = 'none';
     });

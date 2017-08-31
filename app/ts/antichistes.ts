@@ -28,6 +28,7 @@ function random() {
             second_part.textContent = current.second_part;
 
             first_part.style.display = 'block';
+            button_show.style.display = 'block';
         }
     };
 
@@ -35,8 +36,6 @@ function random() {
 }
 
 function aleatorio() {
-    button_show.style.display = 'block';
-
     [first_part, second_part, button_like, button_next].forEach(b => {
         b.style.display = 'none';
     });
