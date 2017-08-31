@@ -1,7 +1,7 @@
 body {
-    margin: 0;
+    margin: 0.75em;
 
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Fira Sans', 'Roboto', 'Helvetica Neue', sans-serif;
     font-weight: 300;
     font-size: 22px;
 
@@ -11,10 +11,6 @@ body {
 header {
     margin: 2.5em 0;
     color: #3C7;
-}
-
-header > * {
-    display: block;
     text-align: center;
 }
 
@@ -34,15 +30,12 @@ a {
     text-decoration: none;
 }
 
-#main {
-    box-sizing: border-box;
+.margin{
     margin: 0 auto;
 
     max-width: 750px;
     width: 100%;
 }
-
-#margin { margin: 0.75em }
 
 blockquote,
 footer {
