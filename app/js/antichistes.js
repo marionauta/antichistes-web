@@ -2,6 +2,7 @@ var version = '2.0.0';
 var urlbase = 'https://get.eldiaque.tk/antichistes';
 var first_part = document.getElementById('first-part');
 var second_part = document.getElementById('second-part');
+var loading = document.getElementById('loading');
 var button_next = document.getElementById('button-next');
 var button_like = document.getElementById('button-like');
 var button_show = document.getElementById('button-show');
@@ -16,9 +17,11 @@ function random() {
             if (response.error === 0) {
                 queue = response.items;
                 fillAntijoke();
+                loading.style.display = 'none';
             }
         }
     };
+    loading.style.display = 'block';
     req.send(null);
 }
 function fillAntijoke() {

@@ -16,6 +16,7 @@ body {
 }
 
 #second-part { margin-top: 1em }
+#loading { text-align: center }
 
 #buttons {
     position: absolute;
