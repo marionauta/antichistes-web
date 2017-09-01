@@ -4,6 +4,13 @@ interface AntiJoke {
     second_part: string,
 }
 
+interface Response {
+    error: number,
+    message: string,
+    count: number,
+    items: Array<AntiJoke>,
+}
+
 const version = '2.0.0';
 const urlbase = 'https://get.eldiaque.tk/antichistes';
 
@@ -15,24 +22,35 @@ const button_like = document.getElementById('button-like');
 const button_show = document.getElementById('button-show');
 
 var current: AntiJoke = null;
+var queue: Array<AntiJoke> = null;
 
 function random() {
     let req = new XMLHttpRequest();
-    req.open('GET', `${urlbase}/random/one`, true);
+    req.open('GET', `${urlbase}/random`, true);
 
     req.onload = e => {
         if (req.readyState === 4 && req.status === 200) {
-            current = JSON.parse(req.responseText).items[0] as AntiJoke;
+            let response: Response = JSON.parse(req.responseText);
 
-            first_part.textContent = current.first_part;
-            second_part.textContent = current.second_part;
-
-            first_part.style.display = 'block';
-            button_show.style.display = 'block';
+            if (response.error === 0) {
+                queue = response.items;
+                fillAntijoke();
+            }
         }
     };
 
     req.send(null);
+}
+
+function fillAntijoke() {
+    current = queue[0];
+    queue.shift();
+
+    first_part.textContent = current.first_part;
+    second_part.textContent = current.second_part;
+
+    first_part.style.display = 'block';
+    button_show.style.display = 'block';
 }
 
 function aleatorio() {
@@ -40,7 +58,11 @@ function aleatorio() {
         b.style.display = 'none';
     });
 
-    random();
+    if (queue === null || queue.length < 1) {
+        random();
+    } else {
+        fillAntijoke();
+    }
 }
 
 // CLICK HANDLERS
