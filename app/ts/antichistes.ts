@@ -25,6 +25,14 @@ const button_show = document.getElementById('button-show');
 var current: AntiJoke = null;
 var queue: Array<AntiJoke> = null;
 
+function display(e: HTMLElement): void {
+    e.style.display = 'block';
+}
+
+function hide(e: HTMLElement): void {
+    e.style.display = 'none';
+}
+
 function random() {
     let req = new XMLHttpRequest();
     req.open('GET', `${urlbase}/random`, true);
@@ -36,12 +44,12 @@ function random() {
             if (response.error === 0) {
                 queue = response.items;
                 fillAntijoke();
-                loading.style.display = 'none';
+                hide(loading);
             }
         }
     };
 
-    loading.style.display = 'block';
+    display(loading);
     req.send(null);
 }
 
@@ -52,14 +60,12 @@ function fillAntijoke() {
     first_part.textContent = current.first_part;
     second_part.textContent = current.second_part;
 
-    first_part.style.display = 'block';
-    button_show.style.display = 'block';
+    display(first_part);
+    display(button_show);
 }
 
 function aleatorio() {
-    [first_part, second_part, button_like, button_next].forEach(b => {
-        b.style.display = 'none';
-    });
+    [first_part, second_part, button_like, button_next].forEach(hide);
 
     if (queue === null || queue.length < 1) {
         random();
@@ -71,7 +77,7 @@ function aleatorio() {
 // CLICK HANDLERS
 
 function like() {
-    button_like.style.display = 'none';
+    hide(button_like);
 
     let req = new XMLHttpRequest();
     req.open('POST', `${urlbase}/vote`, true);
@@ -80,11 +86,9 @@ function like() {
 }
 
 function show() {
-    button_show.style.display = 'none';
+    hide(button_show);
 
-    [second_part, button_like, button_next].forEach(b => {
-        b.style.display = 'block';
-    });
+    [second_part, button_like, button_next].forEach(display);
 }
 
 /// MAIN

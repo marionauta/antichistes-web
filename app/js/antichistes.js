@@ -8,6 +8,12 @@ var button_like = document.getElementById('button-like');
 var button_show = document.getElementById('button-show');
 var current = null;
 var queue = null;
+function display(e) {
+    e.style.display = 'block';
+}
+function hide(e) {
+    e.style.display = 'none';
+}
 function random() {
     var req = new XMLHttpRequest();
     req.open('GET', urlbase + "/random", true);
@@ -17,11 +23,11 @@ function random() {
             if (response.error === 0) {
                 queue = response.items;
                 fillAntijoke();
-                loading.style.display = 'none';
+                hide(loading);
             }
         }
     };
-    loading.style.display = 'block';
+    display(loading);
     req.send(null);
 }
 function fillAntijoke() {
@@ -29,13 +35,11 @@ function fillAntijoke() {
     queue.shift();
     first_part.textContent = current.first_part;
     second_part.textContent = current.second_part;
-    first_part.style.display = 'block';
-    button_show.style.display = 'block';
+    display(first_part);
+    display(button_show);
 }
 function aleatorio() {
-    [first_part, second_part, button_like, button_next].forEach(function (b) {
-        b.style.display = 'none';
-    });
+    [first_part, second_part, button_like, button_next].forEach(hide);
     if (queue === null || queue.length < 1) {
         random();
     }
@@ -44,17 +48,15 @@ function aleatorio() {
     }
 }
 function like() {
-    button_like.style.display = 'none';
+    hide(button_like);
     var req = new XMLHttpRequest();
     req.open('POST', urlbase + "/vote", true);
     req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     req.send("id=" + current.id);
 }
 function show() {
-    button_show.style.display = 'none';
-    [second_part, button_like, button_next].forEach(function (b) {
-        b.style.display = 'block';
-    });
+    hide(button_show);
+    [second_part, button_like, button_next].forEach(display);
 }
 function main() {
     console.log("AntiChistes v" + version);
