@@ -12,7 +12,7 @@ interface Response {
 }
 
 const version = '2.0.0';
-const urlbase = 'https://get.eldiaque.tk/antichistes';
+const urlbase = 'https://api.antichistes.ga/antichistes';
 
 const first_part = document.getElementById('first-part');
 const second_part = document.getElementById('second-part');

@@ -1,5 +1,5 @@
 var version = '2.0.0';
-var urlbase = 'https://get.eldiaque.tk/antichistes';
+var urlbase = 'https://api.antichistes.ga/antichistes';
 var first_part = document.getElementById('first-part');
 var second_part = document.getElementById('second-part');
 var loading = document.getElementById('loading');
